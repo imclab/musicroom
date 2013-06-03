@@ -14,7 +14,6 @@ def login():
 @facebook.authorized_handler
 def facebook_authorized(resp):
   if resp is None:
-    flash(u'You denied the request to sign in.')
     return redirect(request.args.get('next'))
 
   session['facebook_token'] = (resp['access_token'], '')
