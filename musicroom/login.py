@@ -14,7 +14,8 @@ def login():
 @facebook.authorized_handler
 def facebook_authorized(resp):
   if resp is None:
-    return redirect(request.args.get('next'))
+    return ('Uh oh... Something went wrong with Facebook authentication. '
+            'Are you sure you authenticated properly?')
 
   session['facebook_token'] = (resp['access_token'], '')
 
